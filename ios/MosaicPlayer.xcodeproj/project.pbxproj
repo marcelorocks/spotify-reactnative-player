@@ -39,6 +39,7 @@
 		9CCB23801FE098F3007AEBE5 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCB237D1FE098F3007AEBE5 /* SpotifyAudioPlayback.framework */; };
 		9CCB23811FE098F3007AEBE5 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCB237E1FE098F3007AEBE5 /* SpotifyAuthentication.framework */; };
 		9CCB23821FE098F3007AEBE5 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCB237F1FE098F3007AEBE5 /* SpotifyMetadata.framework */; };
+		9CCB23851FE09A6E007AEBE5 /* LoggingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB23841FE09A6E007AEBE5 /* LoggingManager.m */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 /* End PBXBuildFile section */
 
@@ -290,6 +291,8 @@
 		9CCB237D1FE098F3007AEBE5 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		9CCB237E1FE098F3007AEBE5 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		9CCB237F1FE098F3007AEBE5 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		9CCB23831FE09A6E007AEBE5 /* LoggingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingManager.h; sourceTree = "<group>"; };
+		9CCB23841FE09A6E007AEBE5 /* LoggingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoggingManager.m; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -439,6 +442,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				9CCB23831FE09A6E007AEBE5 /* LoggingManager.h */,
+				9CCB23841FE09A6E007AEBE5 /* LoggingManager.m */,
 			);
 			name = MosaicPlayer;
 			sourceTree = "<group>";
@@ -1004,6 +1009,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				9CCB23851FE09A6E007AEBE5 /* LoggingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

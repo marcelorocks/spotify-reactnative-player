@@ -8,16 +8,29 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  NativeModules,
+  TouchableHighlight,
+  Image
 } from 'react-native';
 
 export default class MosaicPlayer extends Component<{}> {
+
+  componentWillMount() {
+    console.warn("componentWillMount")
+  }
+
+  showLogInfo() {
+    var LoggingManager = NativeModules.LoggingManager;
+    LoggingManager.logMessage('Initializing');
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
+        <TouchableHighlight style={styles.button} onPress={this.showLogInfo}>
+          <Image source={require('./assets/spotify-button.png')} />
+        </TouchableHighlight>
       </View>
     );
   }
@@ -29,5 +42,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  button: {
+    width: 300,
+    height: 54
   }
 });
