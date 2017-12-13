@@ -12,4 +12,4 @@ A few notes:
 
 * I added a small api client/request on the js side even though this could be achieved on the ios sdk. I did this because it seemed you wanted the playlists list from their web apis.
 
-* I enjoyed going through the discoveries of this project. I also used some of react-native-spotify project, although I performed a very thorough cleanup there to focus on the scope of what was asked. 
+* I enjoyed going through the discoveries of this project. I also used some of react-native-spotify library available on npm. I did perform a very thorough cleanup there though, to focus on the scope of what was asked. 
