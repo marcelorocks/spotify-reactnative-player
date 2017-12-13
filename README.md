@@ -8,7 +8,7 @@
 
 A few notes:
 
-* EXPO does not seem to support objective-c native code. This did not seem to be the standard (react native and EXPO have their own libraries, but test requested objective-c for spotify sdk)
+* EXPO does not seem to support objective-c native code. This did not seem to be the standard (react native and EXPO have their own libraries, but this test specifically requested to use objective-c for spotify sdk)
 
 * I added a small api client/request on the js side even though this could be achieved on the ios sdk. I did this because it seemed you wanted the playlists list from their web apis.
 
