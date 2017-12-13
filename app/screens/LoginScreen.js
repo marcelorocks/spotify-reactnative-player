@@ -8,39 +8,10 @@ import {
   Image
 } from 'react-native';
 
-var SPOTIFY_CLIENT_ID     = 'c15098f2925b4ccf99fa86defd4cbe3b'
-var SPOTIFY_REDIRECT_URL  = 'mosaicplayer://callback'
-var SPOTIFY_SCOPES        = ['streaming']
-
 var SpotifyModule = NativeModules.SpotifyModule;
-var LoggingManager = NativeModules.LoggingManager;
 var _this;
 
-export default class LaunchScreen extends Component<{}> {
-
-  static navigationOptions = {
-    header: {
-       visible: false,
-    }
-  }
-
-  initializeSpotify() {
-    SpotifyModule.initWithCredentials(SPOTIFY_CLIENT_ID,
-      SPOTIFY_REDIRECT_URL,
-      SPOTIFY_SCOPES,
-      (sucess, message)=>{
-        if(sucess){
-          console.warn("Success Initializing Spotify")
-        } else {
-          console.warn(message)
-        }
-      }
-    );
-  }
-
-  componentWillMount() {
-    this.initializeSpotify()
-  }
+export default class LoginScreen extends Component<{}> {
 
   render() {
     _this = this;
@@ -64,7 +35,7 @@ export default class LaunchScreen extends Component<{}> {
             }
           })
         }}>
-          <Image source={require('./assets/spotify-button.png')} />
+          <Image source={require('../../assets/spotify-button.png')} />
         </TouchableHighlight>
       </View>
     );
