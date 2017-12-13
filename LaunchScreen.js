@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -22,7 +16,13 @@ var SpotifyModule = NativeModules.SpotifyModule;
 var LoggingManager = NativeModules.LoggingManager;
 var _this;
 
-export default class MosaicPlayer extends Component<{}> {
+export default class LaunchScreen extends Component<{}> {
+
+  static navigationOptions = {
+    header: {
+       visible: false,
+    }
+  }
 
   initializeSpotify() {
     SpotifyModule.initWithCredentials(SPOTIFY_CLIENT_ID,
@@ -42,33 +42,28 @@ export default class MosaicPlayer extends Component<{}> {
     this.initializeSpotify()
   }
 
-  startLogIn() {
-    SpotifyModule.loggedIn((res) => {
-      console.warn(res)
-      if(!res) {
-        console.warn("Not logged in, starting process")
-        SpotifyModule.startAuthenticationFlow((error) => {
-          if(!error){
-            console.warn('Signed in alright')
-          } else {
-            console.warn('Error signing in: ' + error)
-          }
-        });
-      } else {
-        console.warn('Already signed in')
-        // _this.props.navigator.replace({
-        //   component: logInSuccess,
-        //   title: 'Success'
-        // });
-      }
-    })
-  }
-
   render() {
     _this = this;
+    const { navigate } = this.props.navigation;
+
     return (
       <View style={styles.container}>
-        <TouchableHighlight style={styles.button} onPress={this.startLogIn}>
+        <TouchableHighlight style={styles.button} onPress={() =>
+          {
+          SpotifyModule.loggedIn((res) => {
+            if(!res) {
+              SpotifyModule.startAuthenticationFlow((error) => {
+                if(!error){
+                  navigate('Home')
+                } else {
+                  console.warn('Error signing in: ' + error)
+                }
+              });
+            } else {
+              navigate('Home')
+            }
+          })
+        }}>
           <Image source={require('./assets/spotify-button.png')} />
         </TouchableHighlight>
       </View>
