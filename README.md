@@ -13,3 +13,5 @@ A few notes:
 * I added a small api client/request on the js side even though this could be achieved on the ios sdk. I did this because it seemed you wanted the playlists list from their web apis.
 
 * I enjoyed going through the discoveries of this project. I also used some of react-native-spotify library available on npm. I did perform a very thorough cleanup there though, to focus on the scope of what was asked. 
+
+* I had to eventually upgrade my Spotify account to premium. You may need to do it as well in case you haven't yet.
