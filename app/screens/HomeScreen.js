@@ -21,28 +21,6 @@ export default class HomeScreen extends Component <{}> {
     this.playLists = [{'title': 'Select Your Playlist', data: []}]
   }
 
-  componentWillMount() {
-    SpotifyModule.accessToken((token) => {
-      fetch('https://api.spotify.com/v1/me', {method: 'GET', headers: {'Authorization': 'Bearer ' + token}})
-      .then(response => response.json())
-      .then(responseJson => {
-        fetch('https://api.spotify.com/v1/users/'+responseJson.id+'/playlists', {method: 'GET', headers: {'Authorization': 'Bearer ' + token}})
-        .then(response => response.json())
-        .then(responseJson => {
-          for(i in responseJson.items) {
-            _this.playLists[0].data[i] = {name: responseJson.items[i].name, uri: responseJson.items[i].uri}
-          }
-          _this.setState({playLists: _this.playLists})
-        }).catch(error => {
-          console.error(error);
-        })
-      }).catch(error => {
-        console.error(error);
-      });
-
-    })
-  }
-
   render() {
     _this = this;
 
@@ -57,6 +35,26 @@ export default class HomeScreen extends Component <{}> {
          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
          keyExtractor={(item, index) => index}
        />
+       <Button title="Load Lists" onPress={() => {
+         SpotifyModule.accessToken((token) => {
+           fetch('https://api.spotify.com/v1/me', {method: 'GET', headers: {'Authorization': 'Bearer ' + token}})
+           .then(response => response.json())
+           .then(responseJson => {
+             fetch('https://api.spotify.com/v1/users/'+responseJson.id+'/playlists', {method: 'GET', headers: {'Authorization': 'Bearer ' + token}})
+             .then(response => response.json())
+             .then(responseJson => {
+               for(i in responseJson.items) {
+                 _this.playLists[0].data[i] = {name: responseJson.items[i].name, uri: responseJson.items[i].uri}
+               }
+               _this.setState({playLists: _this.playLists})
+             }).catch(error => {
+               console.error(error);
+             })
+           }).catch(error => {
+             console.error(error);
+           });
+         })         
+       }}/>
      </View>
     );
    }
